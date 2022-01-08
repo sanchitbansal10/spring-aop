@@ -15,7 +15,7 @@ public class BeforeAspect {
 
     // What kind of method calls I want to intercept
     //execution(ReturnType PACKAGE.CLASS.METHODS(ARGUMENT) )
-    @Before("execution(* com.example.spring.aop.springaop.business.*.*(..))")
+    @Before("com.example.spring.aop.springaop.aspect.CommonJoinPointConfig.dataLayerExecution()")
     public void before(JoinPoint joinPoint) {
         // What to do
         logger.info("Intercepted Application - {}", joinPoint);
