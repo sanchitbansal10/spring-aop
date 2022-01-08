@@ -13,7 +13,7 @@ public class CommonJoinPointConfig {
 
     }
 
-    @Pointcut("execution(* com.example.spring.aop.springaop.data.*.*(..))")
+    @Pointcut("com.example.spring.aop.springaop.aspect.CommonJoinPointConfig.businessLayerExecution() && com.example.spring.aop.springaop.aspect.CommonJoinPointConfig.dataLayerExecution()")
     public void allLayerExecution() {
 
     }
@@ -23,6 +23,9 @@ public class CommonJoinPointConfig {
 
     }
 
-    @Pointcut("within(* com.example.spring.aop.springaop.data..")
+    @Pointcut("within(com.example.spring.aop.springaop.data..*)")
     public void beanWithinProject(){}
+
+    @Pointcut("@annotation(com.example.spring.aop.springaop.aspect.TrackTime)")
+    public void trackTimeAnnotation(){}
 }
