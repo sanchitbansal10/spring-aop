@@ -1,5 +1,6 @@
 package com.example.spring.aop.springaop.aspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
@@ -15,8 +16,8 @@ public class BeforeAspect {
     // What kind of method calls I want to intercept
     //execution(ReturnType PACKAGE.CLASS.METHODS(ARGUMENT) )
     @Before("execution(* com.example.spring.aop.springaop.business.*.*(..))")
-    public void before() {
+    public void before(JoinPoint joinPoint) {
         // What to do
-        logger.info("Intercepted Application");
+        logger.info("Intercepted Application - {}", joinPoint);
     }
 }
